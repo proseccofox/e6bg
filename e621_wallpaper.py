@@ -1,6 +1,7 @@
 # pip install e621py-wrapper
 import subprocess
 import requests
+import os
 from PIL import Image, ImageFont, ImageDraw
 import e621py_wrapper as e621
 
@@ -53,3 +54,7 @@ img.save(filepath)
 
 # set background
 subprocess.run(f"feh --bg-fill {filepath}", shell=True)
+
+# delete the file
+if os.path.isfile(filepath):
+  os.remove(filepath)
